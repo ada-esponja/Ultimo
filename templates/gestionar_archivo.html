@@ -30,11 +30,11 @@
                         </td>
                         <td><input type="text" name="originalHash" id="originalHash-{{ dato['_id'] }}" value="{{ dato['file_content'] }}"></td>
                         <td>
-                            <select name="encryptionAlgorithm" id="encryptionAlgorithm-{{ dato['_id'] }}">
-                                <option value="SHA128" {% if dato['encryption_algorithm'] == 'SHA128' %}selected{% endif %}>SHA128</option>
-                                <option value="SHA256" {% if dato['encryption_algorithm'] == 'SHA256' %}selected{% endif %}>SHA256</option>
-                                <option value="SHA512" {% if dato['encryption_algorithm'] == 'SHA512' %}selected{% endif %}>SHA512</option>
-                            </select>
+                        <select name="encryptionAlgorithm" id="encryptionAlgorithm">
+                        <option value="SHA128">SHA128</option>
+                            <option value="SHA256">SHA256</option>
+                         <option value="SHA512">SHA512</option>
+                        </select>
                         </td>
                         <td>
                             <button type="submit" name="action" value="modificar">Modificar</button>
