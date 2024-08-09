@@ -1,0 +1,78 @@
+/* General styles for the body and table container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styles for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Styles for the form elements inside the table */
+form {
+    display: inline;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button styles */
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    background-color: #FFC0CB;
+}
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='exito.css') }}">
+    <title>registrado</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Archivo registrado con éxito</h1>
+        <br>
+        <form action='/gestionar_archivo' method="POST">
+        <button type="submit">Gestionar archivos</button>
+        </form>
+            <form action='/regresar'>
+            <button type="submit">Regresar</button>
+            </form>
+        <!--<a href="/gestionar_archivo">Gestionar</a>-->
+           </div>
+
+</body>
+
+</html>

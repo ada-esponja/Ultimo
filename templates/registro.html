@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Conectar a MongoDB</title>
+</head>
+<body>
+    <div class="container">
+        <form id="registroForm" action="{{ url_for('registro') }}" method="POST" novalidate>
+            <h1>Registro de usuario</h1>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required pattern="[A-Za-z\s]{5,30}" title="El nombre debe tener de 5 a 30 letras máximo.">
+            <span class="error" id="nombreError"></span>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required pattern="\d{10}" title="El teléfono debe tener 10 dígitos.">
+            <span class="error" id="telefonoError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una letra minúscula, un número y un carácter especial.">
+            <span class="error" id="contrasenaError"></span>
+
+            <button type="submit">Registrar Usuario</button>
+            <br>
+                {% if error %}
+        <p style="color: red;">{{ error }}</p>
+                {% endif %}
+        </form>
+    </div>
+    <script>
+         document.getElementById('registroForm').addEventListener('submit', function(event) {
+            let valid = true; //añadimos un manejador de eventos y se activa cuando se envia el formulario
+
+            // Nombre validation
+            const nombre = document.getElementById('nombre'); //validamos si cumple con lo establecido
+            const nombreError = document.getElementById('nombreError');
+            if (!nombre.checkValidity()) {
+                nombreError.textContent = nombre.title;
+                valid = false;
+            } else {
+                nombreError.textContent = '';
+            }
+
+            // Teléfono validation
+            const telefono = document.getElementById('telefono');
+            const telefonoError = document.getElementById('telefonoError');
+            if (!telefono.checkValidity()) {
+                telefonoError.textContent = telefono.title;
+                valid = false;
+            } else {
+                telefonoError.textContent = '';
+            }
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            if (!email.checkValidity()) {
+                emailError.textContent = email.title;
+                valid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Contraseña validation
+            const contrasena = document.getElementById('contrasena');
+            const contrasenaError = document.getElementById('contrasenaError');
+            if (!contrasena.checkValidity()) {
+                contrasenaError.textContent = contrasena.title;
+                valid = false;
+            } else {
+                contrasenaError.textContent = '';
+            }
+
+            if (!valid) {
+                event.preventDefault(); //no permite enviar el formulario si una validacion falla
+            }
+        });
+    </script>
+</body>
+</html>

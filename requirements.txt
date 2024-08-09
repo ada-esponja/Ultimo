@@ -1,0 +1,7 @@
+flaks
+
+python-dotenv
+
+pymongo[srv]
+
+gunicorn

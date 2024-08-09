@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Archivo Crítico</title>
+    <script src="/static/validar_form.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<h3>Registro de archivo</h3>
+    <form name="criticalFileForm" action="/create_record" method="post" onsubmit="return validateForm()">
+        <label for="fileName">Nombre del Archivo:</label><br>
+        <input type="text" id="fileName" name="fileName"><br><br>
+
+        <label for="fileContent">Contenido del Archivo:</label><br>
+        <textarea id="fileContent" name="fileContent" rows="10" cols="50"></textarea><br><br>
+
+        <label for="encryptionAlgorithm">Algoritmo de Cifrado:</label><br>
+        <select id="encryptionAlgorithm" name="encryptionAlgorithm">
+            <option value="">Seleccione...</option>
+            <option value="SHA128">SHA128</option>
+            <option value="SHA256">SHA256</option>
+            <option value="SHA512">SHA512</option>
+        </select><br><br>
+
+        <label for="encryptionDate">Fecha de Encriptación:</label><br>
+        <input type="text" id="encryptionDate" name="encryptionDate" placeholder="DD/MM/AAAA"><br><br>
+
+        <input type="submit" value="Registrar">
+    </form>
+      <br>
+      <br>
+
+      <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit">Cerrar sesion</button>
+      </form>
+</body>
+</html>
